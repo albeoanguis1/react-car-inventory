@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
-// import { useGetData } from '../../custom-hooks';
+import React, {useState}  from 'react'
+import { useGetData } from '../custom-hooks'
 import { Link } from 'react-router-dom';
-import { Paper } from '@material-ui/core';
+import {Paper} from '@material-ui/core';
 import { Drawer as MUIDrawer,
-    ListItem,
-    List,
-    ListItemIcon,
-    ListItemText,
+    DrawerProps, 
+    ListItem, 
+    List, 
+    ListItemIcon, 
+    ListItemText, 
     Theme,
-    useTheme,
-    makeStyles,
+    useTheme, 
+    makeStyles, 
     createStyles,
     AppBar,
     Toolbar,
@@ -17,23 +18,23 @@ import { Drawer as MUIDrawer,
     Typography,
     Divider,
     Button,
-    Dialog,
-    DialogActions,
+    Dialog, 
+    DialogActions, 
     DialogContent,
-    DialogContentText,
-    DialogTitle
-} from '@material-ui/core'
+    DialogContentText, 
+    DialogTitle  ,
+} from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import clsx from 'clsx';
-import { RouteComponentProps, withRouter, Switch, Route } from 'react-router-dom';
+import { RouteComponentProps, withRouter, Switch, Route } from "react-router-dom";
 import { DataTable } from '../../components/DataTable';
-import { ContactForm } from '../ContactForm';
+import { ContactForm } from '../ContactForm'
 
-interface InventoryProps{
-    history: RouteComponentProps['history'];
+interface GarageProps{
+    history: RouteComponentProps["history"];
     location: RouteComponentProps['location'];
     match: RouteComponentProps['match'];
 }
@@ -168,13 +169,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
 }))
 
-export const Inventory = withRouter((props:InventoryProps) => {
-
+export const Garage = withRouter(( props:GarageProps ) => {
+    
     console.log(props);
-    const { history} = props;
+    const { history } = props;
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
+
     const [dialogOpen, setDialogOpen] = useState(false);
 
     const handleDrawerOpen = () => {
@@ -195,19 +197,19 @@ export const Inventory = withRouter((props:InventoryProps) => {
 
     const itemsList = [
         {
-            text:'Home',
+            text: 'Home',
             onClick: () => history.push('/')
         },
         {
-            text:'Sign In',
+            text: 'Sign In',
             onClick: () => history.push('/signin')
         },
         {
-            text:'About',
+            text: 'About',
             onClick: () => history.push('/about')
         },
         {
-            text:'Contact',
+            text: 'Contact',
             onClick: () => history.push('/contact')
         },
     ]
@@ -221,16 +223,16 @@ export const Inventory = withRouter((props:InventoryProps) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.font} noWrap>
-                        My Inventory
+                        My Phonebook
                     </Typography>
-                    <Button className={classes.toolbar_button} onClick={handleDialogClickOpen}>Create New Car</Button>
+                    <Button className={classes.toolbar_button} onClick={handleDialogClickOpen}>Create New Contact</Button>
 
                     {/* Dialog Pop Up */}
                     <Dialog open={dialogOpen} onClose={handleDialogClickClose} aria-labelledby="form-dialog-title">
-                        <DialogTitle id="form-dialog-title">Add New Car</DialogTitle>
+                        <DialogTitle id="form-dialog-title">Add New Contact</DialogTitle>
                         <DialogContent>
                             <DialogContentText></DialogContentText>
-                            {/* <ContactForm /> */}
+                            <ContactForm />
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleDialogClickClose} color="primary">Cancel</Button>
@@ -260,7 +262,7 @@ export const Inventory = withRouter((props:InventoryProps) => {
             </MUIDrawer>
             <main className={`${clsx(classes.content, {[classes.contentShift]: open,})} ${classes.leftMargin}`}>
                 <div className={classes.drawerHeader} />
-                    <DataTable />
+                    <DataTable /> 
             </main>
         </div>
     )
