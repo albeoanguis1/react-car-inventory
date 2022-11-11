@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // react-router-dom REQUIRES v.5.2.0 to use Switch. There are newer versions available that no longer use Switch, but the code-along requires it.
 
 // import { FirebaseAppProvider, AuthCheck } from 'reactfire';
-import { Home, Contact, About, Inventory } from './components'
-import Garage from './components/Garage'
-import './style.css'
-// import { firebaseConfig } from './firebaseConfig'
+import { Home, Contact, About, Inventory } from './components';
+import  {Garage}  from './components/Garage';
+import { SignIn } from './components/SignIn';
+import './style.css';
+import { FirebaseAppProvider, AuthCheck } from 'reactfire';
+import { firebaseConfig } from './firebaseConfig';
 // import 'firebase/auth';
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
@@ -16,7 +18,7 @@ const myTitle = "Antonio's Car Inventory"
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense={true}> */}
+    <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense={true}>
     <Provider store={store}>
     <Router>
       <Switch>
@@ -37,16 +39,16 @@ ReactDOM.render(
         <Route path='/about'>
           <About></About>
         </Route>
-        {/* <Route path='/signin'>
+        <Route path='/signin'>
           <SignIn></SignIn>
-        </Route> */}
+        </Route>
 
 
 
       </Switch>
     </Router>
     </Provider>
-    {/* </FirebaseAppProvider> */}
+    </FirebaseAppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
