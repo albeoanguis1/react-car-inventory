@@ -52,19 +52,19 @@ export const ContactForm = (props:ContactFormProps) => {
             <form onSubmit = {handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="make">Vehicle Make</label>
-                    <Input {...register('make')} name="make" placeholder='Vehicle Make'/>
+                    <Input {...register('make')} name="make" placeholder='Make'/>
                 </div>
                 <div>
                     <label htmlFor="model">Vehicle Model</label>
-                    <Input {...register('model')} name="model" placeholder='Vyear'/>
+                    <Input {...register('model')} name="model" placeholder='Model'/>
                 </div>
                 <div>
                     <label htmlFor="year">Vehicle Year</label>
-                    <Input {...register('year')} name="year" placeholder='Vehicle Year'/>
+                    <Input {...register('year')} name="year" placeholder='Year'/>
                 </div>
                 <div>
                     <label htmlFor="address">Vehicle Color</label>
-                    <Input {...register('color')} name="color" placeholder='Vehicle Color'/>
+                    <Input {...register('color')} name="color" placeholder='Color'/>
                 </div>
                 <Button type='submit'>Submit</Button>
             </form>

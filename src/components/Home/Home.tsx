@@ -11,7 +11,7 @@ interface Props {
 
 const useStyles = makeStyles({
     background: {
-        backgroundImage: `linear-gradient(rgba(0, 49, 85) 0%, rgba(121,147,163,1) 47%, rgba(249,249,249,1) 100%)`,
+        backgroundImage: `linear-gradient(rgba(1, 160, 255) 0%, rgba(0,200,255,1) 47%, rgba(179,160,255,1) 100%)`,
         width: '100%',
         height: '90%',
         backgroundPosition: 'center',
@@ -43,7 +43,7 @@ export const Home = ( props: Props ) => {
             <div className={classes.main_text}>
                 <h1>{ props.title }</h1>
                 <Button>
-                    <Link to='/phonebook' className={classes.button_text}>Take me to my Car Inventory</Link>
+                    <Link to='/Garage' className={classes.button_text}>Take me to my Car Inventory</Link>
                 </Button>
             </div>
             </div>

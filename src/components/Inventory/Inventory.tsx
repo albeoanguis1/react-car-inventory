@@ -230,7 +230,7 @@ export const Inventory = withRouter((props:InventoryProps) => {
                         <DialogTitle id="form-dialog-title">Add New Car</DialogTitle>
                         <DialogContent>
                             <DialogContentText></DialogContentText>
-                            {/* <ContactForm /> */}
+                            <ContactForm />
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleDialogClickClose} color="primary">Cancel</Button>
